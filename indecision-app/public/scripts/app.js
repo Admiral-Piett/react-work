@@ -1,50 +1,28 @@
 "use strict";
 
-console.log('this is my app file bitch');
+// const app = {
+//     title: "Build It!",
+//     header: "Visibility Toggle",
+//     button_handler: "Show Details"
+// }
 
-// JSX - JavaScript XML
+// const on_details = () => {
+//     if (app.details) {
+//         app.button_handler = "Show Details";
+//         app.details = undefined;
+//         render_page();
+//     } else {
+//         app.button_handler = "Hide Details";
+//         app.details = "Hey, These are some details you can now see!";
+//         render_page();
+//     }
+// }
 
-var app = {
-    title: "Indecision App",
-    subtitle: "Here's some junk I wanted to say.",
-    options: []
-};
+var visibility = false;
 
-function list_options(options) {
-    options.map(function (option) {
-        return React.createElement(
-            "li",
-            { key: options.index },
-            "Option: ",
-            option
-        );
-    });
-};
-
-var on_form_submit = function on_form_submit(e) {
-    // Stops full page refresh and stops sending data back in the URL
-    e.preventDefault();
-
-    // e is the Response, target is the form, elements are the elements in the form, option is the input name field, and value gets the value 
-    var option = e.target.elements.option.value;
-
-    if (option) {
-        app.options.push(option);
-        e.target.elements.option.value = '';
-        render_page();
-    }
-};
-
-var on_reset_options = function on_reset_options() {
-    app.options = [];
+var toggleVisibility = function toggleVisibility() {
+    visibility = !visibility;
     render_page();
-};
-
-var on_make_decision = function on_make_decision() {
-    var rand_num = Math.floor(Math.random() * app.options.length);
-    var option = app.options[rand_num];
-
-    alert(option);
 };
 
 var render_page = function render_page() {
@@ -53,51 +31,30 @@ var render_page = function render_page() {
         { id: "content" },
         React.createElement(
             "h1",
-            { id: "jsx-app-id" },
-            app.title
+            { id: "app-title" },
+            "Visibility Toggle"
         ),
-        app.subtitle && React.createElement(
+        React.createElement(
+            "button",
+            { onClick: toggleVisibility },
+            visibility ? 'Hide Details' : 'Show Details'
+        ),
+        visibility && React.createElement(
             "p",
-            { id: "paragraph-info" },
-            app.subtitle
-        ),
-        app.options && app.options.length > 0 ? "Here are your options" : "No options",
-        React.createElement(
-            "button",
-            { disabled: app.options.length === 0, onClick: on_make_decision },
-            "What should I do?"
-        ),
-        React.createElement(
-            "button",
-            { onClick: on_reset_options },
-            "Remove All Options"
-        ),
-        React.createElement(
-            "ol",
             null,
-            app.options.map(function (option) {
-                return React.createElement(
-                    "li",
-                    { key: option.index },
-                    option
-                );
-            })
-        ),
-        React.createElement(
-            "form",
-            { onSubmit: on_form_submit },
-            React.createElement("input", { id: "text-input", type: "text", name: "option" }),
-            React.createElement(
-                "button",
-                { type: "submit" },
-                "Add Option"
-            )
+            "Hey! Here are some details that you can now see!"
         )
     );
 
     ReactDOM.render(template, appRoot);
 };
+// <button id="show-details-btn" onClick={ on_details }>{ app.button_handler }</button>
+// <p>{ app.details }</p>
 
 var appRoot = document.getElementById('app');
 
 render_page();
+
+// const appTitle = document.getElementById('app-title');
+
+// ReactDOM.render(<title id="app-title">Build It!</title>);
