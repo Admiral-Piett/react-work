@@ -15,20 +15,20 @@ import './styles/styles.scss';
 
 const store = configureStore();
 
-store.dispatch(addExpense({ description: 'Water Bill', amount: 50000, createdAt: 1400000 }));
-store.dispatch(addExpense({ description: 'Electric Bill', amount: 800, createdAt: -950 }));
-store.dispatch(addExpense({ description: 'Gas Bill', amount: 40000, createdAt: 10 }));
-store.dispatch(addExpense({ description: 'Rent', amount: 1095000, createdAt: 250, note:'eff rent' }));
+// store.dispatch(addExpense({ description: 'Water Bill', amount: 50000, createdAt: 1400000 }));
+// store.dispatch(addExpense({ description: 'Electric Bill', amount: 800, createdAt: -950 }));
+// store.dispatch(addExpense({ description: 'Gas Bill', amount: 40000, createdAt: 10 }));
+// store.dispatch(addExpense({ description: 'Rent', amount: 1095000, createdAt: 250, note:'eff rent' }));
 
-store.subscribe(()=>{
-    const state = store.getState();
-    const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
-    console.log(visibleExpenses);
-});
+// store.subscribe(()=>{
+//     const state = store.getState();
+//     const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
+//     console.log(visibleExpenses);
+// });
 
-const state = store.getState();
-const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
-console.log(visibleExpenses);
+// const state = store.getState();
+// const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
+// console.log(visibleExpenses);
 
 const jsx = (
     <Provider store={store}>

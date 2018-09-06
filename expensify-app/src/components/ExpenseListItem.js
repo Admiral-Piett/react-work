@@ -11,7 +11,7 @@ export const ExpenseItem = (props) => (
             <h3>{props.description}</h3>
         </Link>
         <p>Cost: ${props.amount}, Created On: {props.createdAt}</p>
-        <a href={'edit/'+props.id}>Edit</a>
+        <Link to={`edit/${props.id}`}>Edit</Link>
     </div>
 );
 
