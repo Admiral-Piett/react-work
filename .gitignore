@@ -2,4 +2,7 @@ trial*
 node_modules*
 yarn.lock
 **/__snapshots__
-*bundle.js
+*bundle.
+
+*/public/*
+*/.idea/*
