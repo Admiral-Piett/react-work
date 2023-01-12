@@ -1,0 +1,12 @@
+{
+  "books": [
+    {
+      "id": "b81448df-24de-4431-b905-d25db72563f8",
+      "title": "Harry Potter"
+    },
+    {
+      "id": "79256a44-cf63-4be0-aa63-e297930e98f1",
+      "title": "Dune"
+    }
+  ]
+}
