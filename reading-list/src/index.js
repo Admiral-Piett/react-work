@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import App from "./App";
+import {BooksProvider} from "./contexts/books";
 
 import "./styles/index.css";
 
@@ -13,4 +14,8 @@ const element = document.getElementById("root");
 const root = ReactDOM.createRoot(element);
 
 // 5) Show the component on the screen
-root.render(<App />);
+root.render(
+  <BooksProvider>
+    <App />
+  </BooksProvider>
+);
