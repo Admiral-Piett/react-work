@@ -5,6 +5,7 @@ import ButtonPage from "./ButtonPage";
 import DropdownPage from "./DropdownPage";
 import ModalPage from "./ModalPage";
 import TablePage from "./TablePage";
+import SortableTablePage from "./SortableTablePage";
 
 // This is a giant example of manual routing behavior, used with Link and the nav contexts.
 const App = () => {
@@ -26,6 +27,9 @@ const App = () => {
         </Route>
         <Route path="/table">
           <TablePage />
+        </Route>
+        <Route path="/sortable-table">
+          <SortableTablePage />
         </Route>
       </div>
     </div>

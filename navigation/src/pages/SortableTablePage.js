@@ -1,10 +1,13 @@
-import Table from "../components/Table";
+import SortableTable from "../components/SortableTable";
 
-const TablePage = () => {
+// NOTE: could just put all the sorting logic into a SortableTable component which could ALSO be reuseable, unlike
+//  this page.
+const SortableTablePage = () => {
   const config = [
     {
       label: "Fruit",
       render: (fruit) => fruit.name,
+      sortValue: (fruit) => fruit.name,
     },
     {
       label: "Color",
@@ -13,6 +16,7 @@ const TablePage = () => {
     {
       label: "Score",
       render: (fruit) => fruit.score,
+      sortValue: (fruit) => fruit.name,
     },
   ];
 
@@ -25,9 +29,9 @@ const TablePage = () => {
 
   return (
     <div>
-      <Table config={config} data={data} />
+      <SortableTable config={config} data={data} />
     </div>
   );
 };
 
-export default TablePage;
+export default SortableTablePage;
