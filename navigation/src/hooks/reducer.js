@@ -1,0 +1,3 @@
+const useCountReducer = () => {};
+
+export { useCountReducer };

@@ -8,6 +8,7 @@ const Navbar = () => {
     { label: "Modal", path: "/modal" },
     { label: "Table", path: "/table" },
     { label: "Sortable Table", path: "/sortable-table" },
+    { label: "Counter", path: "/counter" },
   ];
   return (
     <div className="sticky top-0 overflow-y-scroll flex flex-col items-start">
