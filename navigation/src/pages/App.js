@@ -7,6 +7,7 @@ import ModalPage from "./ModalPage";
 import TablePage from "./TablePage";
 import SortableTablePage from "./SortableTablePage";
 import CounterPage from "./CounterPage";
+import CounterReducerPage from "./CounterReducerPage";
 
 // This is a giant example of manual routing behavior, used with Link and the nav contexts.
 const App = () => {
@@ -34,6 +35,9 @@ const App = () => {
         </Route>
         <Route path="/counter">
           <CounterPage initialCount={0} />
+        </Route>
+        <Route path="/counter-reducer">
+          <CounterReducerPage initialCount={0} />
         </Route>
       </div>
     </div>

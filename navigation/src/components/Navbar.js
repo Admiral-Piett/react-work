@@ -9,6 +9,7 @@ const Navbar = () => {
     { label: "Table", path: "/table" },
     { label: "Sortable Table", path: "/sortable-table" },
     { label: "Counter", path: "/counter" },
+    { label: "Counter Reducer", path: "/counter-reducer" },
   ];
   return (
     <div className="sticky top-0 overflow-y-scroll flex flex-col items-start">
