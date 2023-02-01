@@ -1,3 +1,4 @@
+import produce from "immer";
 import Panel from "../components/Panel";
 import Button from "../components/Button";
 import { useReducer } from "react";
@@ -10,32 +11,27 @@ const CHANGE_INCREMENT_VALUE = "change_increment_value";
 const reducer = (state, action) => {
   switch (action.type) {
     case INCREMENT_COUNT:
-      return {
-        ...state,
-        count: state.count + 1,
-      };
+      state.count = state.count + 1;
+      return;
     case DECREMENT_COUNT:
-      return {
-        ...state,
-        count: state.count - 1,
-      };
+      state.count = state.count - 1;
+      return;
     case INCREMENT_BY_VALUE:
-      return {
-        ...state,
-        count: state.count + state.incrementValue,
-      };
+      state.count = state.count + state.incrementValue;
+      state.incrementValue = 0;
+      return;
     case CHANGE_INCREMENT_VALUE:
-      return {
-        ...state,
-        incrementValue: action.payload,
-      };
+      state.incrementValue = action.payload;
+      return;
     default:
-      return state;
+      return;
   }
 };
 
 const CounterReducerPage = ({ initialCount }) => {
-  const [state, dispatch] = useReducer(reducer, {
+  // `produce` is from immer which lets us directly mutate the state with code and it, under the hood, creates a
+  // new state object that contains our changes and returns it.
+  const [state, dispatch] = useReducer(produce(reducer), {
     count: initialCount,
     incrementValue: 0,
   });
